@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171123072905) do
+ActiveRecord::Schema.define(version: 20171125094244) do
 
   create_table "resumes", force: :cascade do |t|
     t.string "name"
@@ -21,6 +21,14 @@ ActiveRecord::Schema.define(version: 20171123072905) do
     t.string "state"
     t.integer "zip"
     t.text "summary"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "view_histories", force: :cascade do |t|
+    t.integer "resume_id"
+    t.datetime "time_viewed"
+    t.string "ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

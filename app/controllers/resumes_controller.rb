@@ -9,7 +9,11 @@ class ResumesController < ApplicationController
 
   # GET /resumes/1
   # GET /resumes/1.json
+
   def show
+
+	vh = ViewHistory.new(:time_viewed => Time.now, :ip => request.remote_ip, :resume_id => @resume.id)
+	vh.save
   end
 
   # GET /resumes/new
