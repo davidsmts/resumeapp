@@ -22,3 +22,10 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+TODO:
+- Build this into a better looking website
+
+shortterm:
+- experiment with implementation of stylesheets, javascript and custom .rb
+- finish tutorial
