@@ -10,7 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171125094244) do
+ActiveRecord::Schema.define(version: 20171128054506) do
+
+  create_table "applications", force: :cascade do |t|
+    t.integer "resume_id"
+    t.integer "employer"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "cover_letters", force: :cascade do |t|
+    t.integer "resume_id"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "employers", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "mapping_tables", force: :cascade do |t|
+  end
 
   create_table "resumes", force: :cascade do |t|
     t.string "name"

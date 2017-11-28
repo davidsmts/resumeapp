@@ -1,5 +1,15 @@
 class ResumesController < ApplicationController
+  before_action :check_for_top_secret
   before_action :set_resume, only: [:show, :edit, :update, :destroy]
+
+  def check_for_top_secret
+    render :plain => "Not Authorized", :status => 403 if params[:id] && params[:id].to_i > 500
+  end
+
+  def viewed
+    resume = Resume.find(params[:id])
+    @views = resume.view_histories
+  end
 
   # GET /resumes
   # GET /resumes.json
@@ -11,7 +21,6 @@ class ResumesController < ApplicationController
   # GET /resumes/1.json
 
   def show
-
 	vh = ViewHistory.new(:time_viewed => Time.now, :ip => request.remote_ip, :resume_id => @resume.id)
 	vh.save
   end

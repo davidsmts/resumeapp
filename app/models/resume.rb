@@ -1,4 +1,4 @@
 
 class Resume < ApplicationRecord
-	has_many :view_histoies
+	has_many :view_histories
 end
